@@ -1,0 +1,61 @@
+.rating {
+	--activeColor: orange;
+	--inactiveColor: gray;
+	display: inline-block;
+	padding: 0 0.5em 0.5em 0.2em;
+}
+
+.star {
+	color: var(--inactiveColor, slategray);
+	float: right;
+	visibility: hidden;
+	margin-left: 0;
+	transition: color 0.7s ease-out, transform 0.2s linear;
+}
+
+.star:before {
+	visibility: visible;
+	content: "★";
+	font-size: 1.6em;
+}
+
+.star:hover,
+.star:hover ~ .star,
+.star:checked,
+.star:checked ~ .star {
+	color: var(--activeColor, lightsteelblue);
+	cursor: pointer;
+}
+
+.star:hover {
+	transform: translate(0, -0.2em);
+}
+
+.vote {
+	float: right;
+	margin: 0.1em 0 0 0.5em;
+	font-size: 1.4em;
+	color: var(--inactiveColor, slategray);
+	background: rgba(0, 0, 0, 0.3);
+	border: var(--inactiveColor, slategray) 0.05em solid;
+	border-radius: 1em;
+	padding: 0.1em 0.5em;
+	transition: color 0.7s ease-out, border-color 0.7s ease-out, transform 0.1s linear;
+}
+
+.vote:active {
+	transform: scale(0.9);
+	/*margin: 0.2em 0 0 0.75em;
+	font-size: 1.3em;
+	padding: 0.1em 0.5em;*/
+}
+
+.vote:hover {
+	color: var(--activeColor, lightsteelblue);
+	cursor: pointer;
+	border: var(--activeColor, lightsteelblue) 0.05em solid;
+}
+
+.vote:focus {
+	outline: 0;
+}
