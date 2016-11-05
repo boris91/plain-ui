@@ -1,0 +1,52 @@
+.toggler {
+	visibility: hidden;
+	--active: green;
+	--activeBg: lightgreen;
+	--idle: gray;
+	--idleBg: lightgray;
+	--scrubberTransDur: 0.1s;
+	--colorTransDur: 0.2s;
+}
+
+.toggler:before {
+	visibility: visible;
+	display: block;
+	content: '';
+	background: var(--idleBg);
+	width: 2.8em;
+	height: 1.4em;
+	border-radius: 1em;
+	transition: background var(--colorTransDur) linear;
+}
+
+.toggler:after {
+	visibility: visible;
+	display: block;
+	content: '';
+	background: var(--idle);
+	width: 1.2em;
+	height: 1.2em;
+	border-radius: 1em;
+	transform: translate(0.18em, -1.32em);
+	transition: transform var(--scrubberTransDur) linear, background var(--colorTransDur) linear;
+}
+
+.toggler:hover:before,
+.toggler:hover:after {
+	cursor: pointer;
+}
+
+.toggler:checked:before {
+	background: var(--activeBg);
+}
+
+.toggler:checked:after {
+	visibility: visible;
+	display: block;
+	content: '';
+	background: var(--active);
+	width: 1.2em;
+	height: 1.2em;
+	border-radius: 1em;
+	transform: translate(1.4em, -1.32em);
+}
